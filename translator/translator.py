@@ -14,7 +14,7 @@ class Parse:
     
     def checker(self):
         if self.args.text==None and self.args.to_lang!=None:
-            print("Did not recieve text\n")
+            print("Did not recieve text")
             raise SystemExit
         if self.args.language!=None and self.args.text==None:
             self.lang_info()
@@ -29,7 +29,7 @@ class Parse:
         translator= Translator(to_lang=lang)
         translation = translator.translate(self.args.text)
         if self.args.output!=None:
-            with open(self.args.output,"w") as file:
+            with open(self.args.output,"w",encoding="utf-8") as file:
                 file.write(translation)
         else:
             print(translation)
